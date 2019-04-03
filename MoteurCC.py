@@ -100,41 +100,44 @@ def simulation_induct(moteur, dt, duree, tens):
         moteur.EqMeca(dt)
     return t
 
-vit = 150
-prop = 150
-step = 0.01
-duration = 1
 
-mot1 = MoteurCC(1)
-mot2 = MoteurCC(1)
-mot3 = MoteurCC(1)
-mot4 = MoteurCC(1)
+if __name__ == "__main__": # false lors d'un import
 
-time = simulation(mot1, step, duration, 1)
-time2 = simulation_induct(mot2, step, duration,1)
-time3 = simulation_PROP(mot3, step, duration, vit, prop)
-time4 = simulation_induct(mot4, step, duration,1)
+    vit = 150
+    prop = 150
+    step = 0.01
+    duration = 1
 
-plt.subplot(2, 1, 1)
-plt.plot(time, mot1.vitesse)
-plt.title('Simulation 1')
-plt.ylabel('vitesse')
+    mot1 = MoteurCC(1)
+    mot2 = MoteurCC(1)
+    mot3 = MoteurCC(1)
+    mot4 = MoteurCC(1)
 
-plt.subplot(2, 1, 2)
-plt.plot(time2, mot2.vitesse)
-plt.title('Simulation 2')
-plt.ylabel('vitesse')
+    time = simulation(mot1, step, duration, 1)
+    time2 = simulation_induct(mot2, step, duration,1)
+    time3 = simulation_PROP(mot3, step, duration, vit, prop)
+    time4 = simulation_induct(mot4, step, duration,1)
 
-plt.subplot(2, 2, 3)
-plt.plot(time3, mot3.vitesse)
-plt.title('Solution 3')
-plt.xlabel('time (s)')
-plt.ylabel('vitesse')
+    plt.subplot(2, 1, 1)
+    plt.plot(time, mot1.vitesse)
+    plt.title('Simulation 1')
+    plt.ylabel('vitesse')
 
-plt.subplot(2, 2, 4)
-plt.plot(time4, mot4.vitesse)
-plt.title('Solution 4')
-plt.xlabel('time (s)')
-plt.ylabel('vitesse')
+    plt.subplot(2, 1, 2)
+    plt.plot(time2, mot2.vitesse)
+    plt.title('Simulation 2')
+    plt.ylabel('vitesse')
 
-plt.show()
+    plt.subplot(2, 2, 3)
+    plt.plot(time3, mot3.vitesse)
+    plt.title('Solution 3')
+    plt.xlabel('time (s)')
+    plt.ylabel('vitesse')
+
+    plt.subplot(2, 2, 4)
+    plt.plot(time4, mot4.vitesse)
+    plt.title('Solution 4')
+    plt.xlabel('time (s)')
+    plt.ylabel('vitesse')
+
+    plt.show()
