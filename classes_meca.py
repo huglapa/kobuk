@@ -1,4 +1,3 @@
-import numpy
 class Vecteur3d(object):
     """Définit un vecteur 3D, produit vect avec * et produit scalaire avec **"""
     def __init__(self, x=0, y=0, z=0):
@@ -16,7 +15,7 @@ class Vecteur3d(object):
         return Vecteur3d(self.x + other.x, self.y + other.y, self.z + other.z)
 
     def __neg__(self):
-        return Vecteur3d(-self.x , -self.y, -self.z)
+        return Vecteur3d(-self.x, -self.y, -self.z)
 
     def __sub__(self, other):
         return self + (-other)
@@ -46,7 +45,7 @@ class Vecteur3d(object):
             X = other * self.x
             Y = other * self.y
             Z = other * self.z
-            return Vecteur3d(X,Y,Z)
+            return Vecteur3d(X, Y, Z)
 
     def __rpow__(self, other):
         return self * other
@@ -61,16 +60,16 @@ class Vecteur3d(object):
             return False
 
     def __gt__(self, other):
-        return self.mod()>other.mod()
+        return self.mod() > other.mod()
 
     def __lt__(self, other):
-        return self.mod()<other.mod()
+        return self.mod() < other.mod()
 
     def __ge__(self, other):
-        return not self.mod()<other.mod()
+        return not self.mod() < other.mod()
 
     def __le__(self, other):
-        return not self.mod()>other.mod()
+        return not self.mod() > other.mod()
 
     def mod (self):
         return (self ** self) ** 0.5
@@ -85,7 +84,7 @@ class Vecteur3d(object):
         self.z = M.z
 
 
-if __name__ == "__main__": # false lors d'un import
+if __name__ == "__main__":  # false lors d'un import
 
     V1 = Vecteur3d(1, 0, 0)
     V2 = Vecteur3d(0, 1, 0)
